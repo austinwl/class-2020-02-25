@@ -1,0 +1,22 @@
+---
+title: "craps"
+author: "Austin Li"
+date: "2/25/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+
+add_dice <- function(n) {
+  stopifnot(is.numeric(n))
+  sum(sample(1:6, n, replace=TRUE))
+}
+
+roll_dice <- function(n) {
+  map_int(rep(2,n), add_dice)
+  sample(1:6, n, replace=TRUE)
+}
+
+```
